@@ -1,0 +1,51 @@
+package day_4;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class task1_4 {
+    private int counter;
+    Character[][] board;
+
+    public task1_4() {
+        this.counter = 0;
+        this.board = new Character[138][138];
+    }
+
+    public void loadFile() throws FileNotFoundException {
+        File file = new File("./AOC_2025/src/day_4/input.txt");
+        Scanner scanner = new Scanner(file);
+
+        int i = 0;
+        while (scanner.hasNextLine()) {
+            String num = scanner.next();
+            for (int j = 0; j < 138; j++) {
+                this.board[i][j] = num.charAt(j);
+            }
+            i++;
+        }
+        this.check();
+        System.out.println(this.counter);
+        scanner.close();
+    }
+
+    public void check() {
+        for (int i = 0; i < 138; i++) {
+            for (int j = 0; j < 138; j++) {
+                if (this.board[i][j] == '@') {
+                    int neighborhoods = 0;
+                    if (i > 0 && (board[i - 1][j] == '@' || board[i - 1][j] == 'x')) neighborhoods++;
+                    if (i < 138 - 1 && (board[i + 1][j] == '@' || board[i + 1][j] == 'x')) neighborhoods++;
+                    if (j > 0 && board[i][j - 1] == '@') neighborhoods++;
+                    if (j < 138 - 1 && board[i][j + 1] == '@') neighborhoods++;
+                    if (j > 0 && i > 0 && board[i - 1][j - 1] == '@') neighborhoods++;
+                    if (j < 138 - 1 && i > 0 && board[i - 1][j + 1] == '@') neighborhoods++;
+                    if (j > 0 && i < 138 - 1 && board[i + 1][j - 1] == '@') neighborhoods++;
+                    if (j < 138 - 1 && i < 138 - 1 && board[i + 1][j + 1] == '@') neighborhoods++;
+                    if (neighborhoods < 4) this.counter++;
+                }
+            }
+        }
+    }
+}
