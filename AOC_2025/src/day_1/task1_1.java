@@ -4,17 +4,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class day1_1 {
+public class task1_1 {
     private int counter;
     private int index;
 
-    public day1_1() {
+    public task1_1() {
         counter = 0;
         index = 50;
     }
 
     public void loadFile() throws FileNotFoundException {
-        File file = new File("./AOC_2025/src/day_1/day_1.txt");
+        File file = new File("./AOC_2025/src/day_1/input.txt");
         Scanner scanner = new Scanner(file);
 
         while (scanner.hasNextLine()) {

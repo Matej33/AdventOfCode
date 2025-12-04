@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class task1 {
+public class task1_2 {
 
     private long counter;
     private long minFirstHalf;
     private long minSecondHalf;
     private long max;
 
-    public task1() {
+    public task1_2() {
         counter = 0;
     }
 
