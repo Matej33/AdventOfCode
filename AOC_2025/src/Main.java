@@ -1,7 +1,8 @@
-import day_1.day1_1;
-import day_1.day1_2;
+import day_2.task1;
+import day_3.task1_3;
+import day_3.task2_3;
 
 void main() throws FileNotFoundException {
-    day1_2 day1 = new day1_2();
-    day1.loadFile();
+    task2_3 day3 = new task2_3();
+    day3.loadFile();
 }
